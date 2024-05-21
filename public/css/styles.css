@@ -1,0 +1,77 @@
+/* body {
+    overflow: hidden;
+} */
+
+.character {
+    height: 300px;
+    animation: slide-in 1s ease-in-out infinite alternate;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.font-baskerville {
+    font-family: 'Libre Baskerville', serif;
+}
+
+.glow-top {
+    position: relative;
+}
+
+.glow-top::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: -1;
+}
+
+.glow-bottom {
+    position: relative;
+}
+
+.glow-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: -1;
+}
+
+.link-item {
+    transition: all 0.3s ease;
+}
+
+.link-item:hover {
+    background: rgba(255, 255, 255, 0.4);
+    color: white;
+    /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+}
+
+footer {
+    background-color: #2d2d2d;
+    color: #cccccc;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Other custom styles can go here */

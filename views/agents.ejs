@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Agents</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        .agent-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .agent-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <%- include('partials/navbar.ejs'); %>
+        <div class="container mx-auto p-8">
+            <h1 class="text-4xl font-bold mb-8 text-center">Valorant Agents</h1>
+            <div id="agent-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <% try { %>
+                    <% agents.forEach(agent=> { %>
+                        <a href="/agent/<%=agent.uuid %>"
+                            class="agent-card p-4 rounded-lg flex flex-col items-center text-center">
+                            <img src="<%= agent.displayIcon %>" alt="<%= agent.displayName %>" class="w-12 h-12 mb-2">
+                            <h2 class="text-2xl font-bold mb-2 text-white">
+                                <%= agent.displayName %>
+                            </h2>
+                            <p class="text-lg italic mb-4 text-gray-300">
+                                <%= agent.role.displayName %>
+                            </p>
+                            <div class="flex space-x-2 mt-auto">
+                                <% agent.abilities.slice(0, 4).forEach(ability=> { %>
+                                    <img src="<%= ability.displayIcon %>" alt="<%= ability.displayName %>"
+                                        class="w-8 h-8">
+                                    <% }); %>
+                            </div>
+                        </a>
+                        <% }); %>
+                            <% } catch(error) { %>
+                                <p>Error rendering agents: <%= error.message %>
+                                </p>
+                                <% } %>
+            </div>
+        </div>
+        <%- include('partials/footer.ejs') %>
+</body>
+
+</html>

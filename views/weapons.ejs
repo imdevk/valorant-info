@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Weapons</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        .weapon-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease;
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+            /* Increase the fixed height for the weapon cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center the content vertically */
+            align-items: center;
+            /* Center the content horizontally */
+        }
+
+        .weapon-card:hover {
+            transform: scale(1.05);
+        }
+
+        .weapon-icon {
+            width: auto;
+            /* Reset the width to auto */
+            height: 70px;
+            /* Set a fixed height for the weapon icons */
+            object-fit: contain;
+            /* Maintain the aspect ratio and fit within the container */
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold mb-8 text-center">Valorant Weapons</h1>
+        <div id="weapon-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% try { %>
+                <% weapons.forEach(weapon=> { %>
+                    <a href="/weapon/<%= weapon.uuid %>" class="weapon-card p-4 rounded-lg text-center">
+                        <img src="<%= weapon.displayIcon %>" alt="<%= weapon.displayName %>" class="weapon-icon">
+                        <h2 class="text-2xl font-bold mb-2 mt-3">
+                            <%= weapon.displayName %>
+                        </h2>
+                    </a>
+                    <% }); %>
+                        <% } catch (error) { %>
+                            <p>Error rendering weapons: <%= error.message %>
+                            </p>
+                            <% } %>
+        </div>
+    </div>
+    <%- include('partials/footer.ejs') %>
+</body>
+
+</html>
