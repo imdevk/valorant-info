@@ -63,91 +63,92 @@
 </head>
 
 <body class="bg-black text-white">
-    <div class="container mx-auto p-8">
-        <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
-            <!-- Weapon icon and name -->
-            <div class="weapon-header">
-                <img src="<%= weapon.displayIcon %>" alt="<%= weapon.displayName %>">
-                <h1 class="text-5xl font-bold mb-4 mt-3 text-center">
-                    <%= weapon.displayName %>
-                </h1>
-            </div>
+    <%- include('partials/navbar.ejs'); %>
+        <div class="container mx-auto p-8 mt-8">
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                <!-- Weapon icon and name -->
+                <div class="weapon-header">
+                    <img src="<%= weapon.displayIcon %>" alt="<%= weapon.displayName %>">
+                    <h1 class="text-5xl font-bold mb-4 mt-3 text-center">
+                        <%= weapon.displayName %>
+                    </h1>
+                </div>
 
-            <!-- Flex container for the two rows -->
-            <div class="row-container">
-                <!-- First row -->
-                <div class="column-container">
-                    <div class="details-container">
-                        <h2 class="text-3xl font-bold mb-4">Weapon Stats</h2>
-                        <!-- Display weapon stats here -->
-                        <p><strong>Fire Rate:</strong>
-                            <%= weapon.weaponStats.fireRate %>
-                        </p>
-                        <p><strong>Magazine Size:</strong>
-                            <%= weapon.weaponStats.magazineSize %>
-                        </p>
-                        <p><strong>Equip Time (Seconds):</strong>
-                            <%= weapon.weaponStats.equipTimeSeconds %>
-                        </p>
-                        <p><strong>Reload Time (Seconds):</strong>
-                            <%= weapon.weaponStats.reloadTimeSeconds %>
-                        </p>
-                        <p><strong>First Bullet Accuracy:</strong>
-                            <%= weapon.weaponStats.firstBulletAccuracy %>
-                        </p>
+                <!-- Flex container for the two rows -->
+                <div class="row-container">
+                    <!-- First row -->
+                    <div class="column-container">
+                        <div class="details-container">
+                            <h2 class="text-3xl font-bold mb-4">Weapon Stats</h2>
+                            <!-- Display weapon stats here -->
+                            <p><strong>Fire Rate:</strong>
+                                <%= weapon.weaponStats.fireRate %>
+                            </p>
+                            <p><strong>Magazine Size:</strong>
+                                <%= weapon.weaponStats.magazineSize %>
+                            </p>
+                            <p><strong>Equip Time (Seconds):</strong>
+                                <%= weapon.weaponStats.equipTimeSeconds %>
+                            </p>
+                            <p><strong>Reload Time (Seconds):</strong>
+                                <%= weapon.weaponStats.reloadTimeSeconds %>
+                            </p>
+                            <p><strong>First Bullet Accuracy:</strong>
+                                <%= weapon.weaponStats.firstBulletAccuracy %>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="column-container">
-                    <div class="details-container">
-                        <h2 class="text-3xl font-bold mb-4">ADS Stats</h2>
-                        <!-- Display ADS stats here -->
-                        <p><strong>Fire Rate:</strong>
-                            <%= weapon.weaponStats.adsStats.fireRate %>
-                        </p>
-                        <p><strong>First Bullet Accuracy:</strong>
-                            <%= weapon.weaponStats.adsStats.firstBulletAccuracy %>
-                        </p>
-                        <p><strong>Zoom Multiplier:</strong>
-                            <%= weapon.weaponStats.adsStats.zoomMultiplier %>
-                        </p>
+                    <div class="column-container">
+                        <div class="details-container">
+                            <h2 class="text-3xl font-bold mb-4">ADS Stats</h2>
+                            <!-- Display ADS stats here -->
+                            <p><strong>Fire Rate:</strong>
+                                <%= weapon.weaponStats.adsStats.fireRate %>
+                            </p>
+                            <p><strong>First Bullet Accuracy:</strong>
+                                <%= weapon.weaponStats.adsStats.firstBulletAccuracy %>
+                            </p>
+                            <p><strong>Zoom Multiplier:</strong>
+                                <%= weapon.weaponStats.adsStats.zoomMultiplier %>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <!-- Second row -->
-                <div class="column-container">
-                    <div class="details-container">
-                        <h2 class="text-3xl font-bold mb-4">Damage Ranges</h2>
-                        <!-- Display damage ranges here -->
-                        <p><strong>Head Damage:</strong>
-                            <%= weapon.weaponStats.damageRanges.headDamage %>
-                        </p>
-                        <p><strong>Body Damage:</strong>
-                            <%= weapon.weaponStats.damageRanges.bodyDamage %>
-                        </p>
-                        <p><strong>Leg Damage:</strong>
-                            <%= weapon.weaponStats.damageRanges.legDamage %>
-                        </p>
+                    <!-- Second row -->
+                    <div class="column-container">
+                        <div class="details-container">
+                            <h2 class="text-3xl font-bold mb-4">Damage Ranges</h2>
+                            <!-- Display damage ranges here -->
+                            <p><strong>Head Damage:</strong>
+                                <%= weapon.weaponStats.damageRanges.headDamage %>
+                            </p>
+                            <p><strong>Body Damage:</strong>
+                                <%= weapon.weaponStats.damageRanges.bodyDamage %>
+                            </p>
+                            <p><strong>Leg Damage:</strong>
+                                <%= weapon.weaponStats.damageRanges.legDamage %>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="column-container">
-                    <div class="details-container">
-                        <h2 class="text-3xl font-bold mb-4">Shop Data</h2>
-                        <!-- Display shop data here -->
-                        <p><strong>Cost:</strong>
-                            <%= weapon.shopData.cost %>
-                        </p>
-                        <p><strong>Category:</strong>
-                            <%= weapon.shopData.category %>
-                        </p>
-                        <p><strong>Shop Order Priority:</strong>
-                            <%= weapon.shopData.shopOrderPriority %>
-                        </p>
+                    <div class="column-container">
+                        <div class="details-container">
+                            <h2 class="text-3xl font-bold mb-4">Shop Data</h2>
+                            <!-- Display shop data here -->
+                            <p><strong>Cost:</strong>
+                                <%= weapon.shopData.cost %>
+                            </p>
+                            <p><strong>Category:</strong>
+                                <%= weapon.shopData.category %>
+                            </p>
+                            <p><strong>Shop Order Priority:</strong>
+                                <%= weapon.shopData.shopOrderPriority %>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <%- include('partials/footer.ejs') %>
+        <%- include('partials/footer.ejs') %>
 </body>
 
 </html>
